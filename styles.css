@@ -28,22 +28,20 @@ html {
 }
 
 .assets {
-  width: 10%;
-  height: 10%;
   background-color: blue;
+  background-image: url("/boy.png");
   position: relative;
-  left: 80%;
-  top: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
 
   /* Style your assets */
 }
 
 .asset01 {
-  width: 10%;
-  height: 10%;
-  background-color: blue;
-  position: relative;
-  left: 80%;
+  height: 12%;
+  width: 12%;
+  background-image: url("/boy.png");
+  left: 60%;
   top: 50%;
 
   /* Style your assets */
@@ -58,5 +56,5 @@ html {
   height: 20vh;
   transform: translate(-50%, -50%);
   left: 50%;
-  top: 50%;
+  top: 60%;
 }
