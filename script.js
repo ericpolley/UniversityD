@@ -5,6 +5,11 @@ const assets = document.querySelector('.assets');
 const character = document.querySelector('.character');
 
 let backgroundPosition = 0;
+let initialTouchX = null;
+let previousTouchX = null;
+
+// Initialize the background position when the script loads
+updateElementsPosition();
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
@@ -13,8 +18,36 @@ document.addEventListener('keydown', (event) => {
         backgroundPosition -= 10;
     }
 
-    background.style.backgroundPosition = `${backgroundPosition}px 0`;
-    assets.style.transform = `translateX(${backgroundPosition}px)`;
+    updateElementsPosition();
 });
 
-// You can also add touch/swipe functionality for tablets
+document.addEventListener('touchstart', (event) => {
+    initialTouchX = event.touches[0].clientX;
+    previousTouchX = initialTouchX;
+});
+
+document.addEventListener('touchmove', (event) => {
+    if (initialTouchX === null) {
+        return;
+    }
+
+    const currentTouchX = event.touches[0].clientX;
+    const touchDiff = currentTouchX - previousTouchX;
+
+    backgroundPosition -= touchDiff;
+    previousTouchX = currentTouchX;
+
+    updateElementsPosition();
+});
+
+document.addEventListener('touchend', () => {
+    initialTouchX = null;
+    previousTouchX = null;
+});
+
+function updateElementsPosition() {
+    background.style.backgroundPosition = `${backgroundPosition}px bottom`;
+    assets.style.transform = `translateX(${backgroundPosition}px)`;
+}
+
+// You can also add more touch handling logic and customize the touch sensitivity
