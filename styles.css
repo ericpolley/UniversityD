@@ -15,21 +15,21 @@ html {
 
 .background {
   background: url("/town.png") repeat-x; /* Set your background image */
-  background-position: bottom;
 }
 
 #background {
   position: absolute;
+  background-size: contain;
 
   width: 200%; /* Double the container width for smooth scrolling effect */
   height: 100%;
-
+  z-index: 0;
   animation: scrollBackground 10s linear infinite; /* Adjust the duration as needed */
 }
 
 .assets {
-  background-color: blue;
-  background-image: url("/boy.png");
+  color: white;
+
   position: relative;
   background-size: contain;
   background-repeat: no-repeat;
@@ -39,10 +39,22 @@ html {
 
 .asset01 {
   height: 12%;
-  width: 12%;
+  width: 8%;
   background-image: url("/boy.png");
-  left: 60%;
-  top: 50%;
+  left: 40%;
+  top: 77%;
+  z-index: 2;
+
+  /* Style your assets */
+}
+
+.asset02 {
+  height: 12%;
+  width: 8%;
+  background-image: url("/boy.png");
+  left: 40%;
+  top: 67%;
+  z-index: 2;
 
   /* Style your assets */
 }
@@ -56,5 +68,6 @@ html {
   height: 20vh;
   transform: translate(-50%, -50%);
   left: 50%;
-  top: 60%;
+  top: 90%;
+  z-index: 3;
 }
